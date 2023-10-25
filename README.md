@@ -4,8 +4,6 @@
 
 ## Tech Stack:
 <ul>
-  <li>HTML</li>
-  <li>Js</li>
   <li>Node.js</li>
   <li>Express</li>
   <li>MongoDB</li>
