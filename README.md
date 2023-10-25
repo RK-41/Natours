@@ -1,7 +1,6 @@
 # Natours
 
-## A tourism web-app.
-<br> (Under progress)
+## A tourism web-app. (Under progress)
 
 ## Tech Stack:
 <ul>
