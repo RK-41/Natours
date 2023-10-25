@@ -12,7 +12,7 @@
   <li>Mongoose</li>
 </ul>
 
-## What's Implemented till Now:
+## What's been Implemented till Now:
 <ul>
   <li>Tour Routes</li>
   <li>User Routes</li>
