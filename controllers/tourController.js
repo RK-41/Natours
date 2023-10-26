@@ -1,21 +1,47 @@
 /* 22.10.
 
-TOUR ROUTE CONTROLLER/HANDLER
+   TOUR ROUTE CONTROLLER/HANDLER
 
+   26.10.
+      Modified the function 'getAllTours()'
+         BUILDING THE QUERY
+         EXECUTING THE QUERY
 */
 
 // Requiring Core Modules
 const Tour = require('./../models/tourModel');
-
 
 // ROUTE HANDLER FUNCTIONS for TOUR
 // Handler Funtion to get all tours
 exports.getAllTours = async (req, res) => {
 
    try {
-      // Getting all the Documents from the DB
-      const tours = await Tour.find();
+      // BUILDING THE QUERY
+      // Creating a query object
+      const queryObj = { ...req.query };
 
+      // Array of excluded fields
+      const excludedFields = ['page', 'sort', 'limit', 'fields'];
+
+      // Deleting excluded fields form the query object
+      excludedFields.forEach(el => {
+         return delete queryObj[el];
+      });
+
+      console.log(req.query, queryObj);
+
+      // Getting the query
+      const query = Tour.find(queryObj);
+
+      // const query = Tour.find()
+      //    .where('duration').equals(5)
+      //    .where('difficulty').equals('easy');
+
+      // EXECUTING THE QUERY
+      // Getting the Filtered Documents based on the 'query'
+      const tours = await query;
+
+      // SENDING THE RESPONSE
       res.status(200).json({
          status: 'success',
          results: tours.length,
